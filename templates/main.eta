@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello user management!</title>
+  </head>
+  <body>
+    <% if (it && it.user) { %>
+    <p>Hi <%= it.user.email %>!</p> <br>
+    <p><a href="/todos">Todos</a></p>
+    <form method="POST" action="/auth/logout">
+    <input type="submit" value="Logout" />
+  </form>
+    <% } else { %>
+    <p>Hi guest!</p>
+    <p>Please <a href="/auth/login">login</a> or <a href="/auth/register">register</a>.</p>
+    <% } %>
+  </body>

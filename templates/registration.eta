@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello user management!</title>
+  </head>
+  <body>
+    <h1>Registration!</h1>
+    <form method="POST" action="/auth/register">
+      <label for="email">Email:</label>
+      <input type="email" name="email" id="email" />
+      <label for="password">Password:</label>
+      <input type="password" name="password" id="password" />
+      <label for="verification">Password again:</label>
+      <input type="password" name="verification" id="verification" />
+      <input type="submit" value="Register!" />
+    </form>
+  </body>
+</html>
