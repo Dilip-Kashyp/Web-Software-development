@@ -16,20 +16,20 @@ const createTodos = async (c) => {
 const showTodo = async (c) => {
     const id = c.req.param("id");   
     return c.html(
-        eta.render("todo.eta", { todo: await todoServices.getTodo(c.id, id) }),
+        eta.render("todo.eta", { todo: await todoServices.getTodo(c.user.id, id) }),
     );
 };
 
 const updateTodo = async (c) => {
     const id = c.req.param("id");
     const body = await c.req.parseBody();
-    await todoServices.updatedTodo(c.id, id, body);
-    return c.redirect("/todos");
-}
+    await todoServices.updatedTodo(c.user.id, id, body);
+    return c.redirect(`/todos/${id}`);
+  };
 
 const deleteTodo = async (c) => {
     const id = c.req.param("id");
-    await todoServices.deletedTodo(c.id, id);
+    await todoServices.deletedTodo(c.user.id, id);
     return c.redirect("/todos");
 }
 export { showForm, createTodos, showTodo, updateTodo, deleteTodo }

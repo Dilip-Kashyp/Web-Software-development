@@ -6,6 +6,9 @@ import * as middlewares from "./middlewares.js";
 
 const app = new Hono();
 
+app.use("*", middlewares.addUserToContextMiddleware);
+app.use("/todos/*", middlewares.accessControlMiddleware);
+
 app.get("/", mainController.showMain);
 app.get("/auth/login", authController.showLoginForm);
 app.get("/auth/register", authController.showRegistrationForm);
@@ -18,7 +21,5 @@ app.post("/todos", todoController.createTodos);
 app.post("/todos/:id", todoController.updateTodo);
 app.post("/todos/:id/delete", todoController.deleteTodo);
 
-app.use("*", middlewares.addUserToContextMiddleware);
-app.use("/todos/*", middlewares.accessControlMiddleware);
 
 export default app;

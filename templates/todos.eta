@@ -4,23 +4,22 @@
     <title>TODO</title>
   </head>
   <body>
-  <form method="POST" action="/todos">
-    <label for="todo">Todo:</label>
-    <input type="text" id="todo" name="todo" /><br />
-    <input type="submit" value="Add" />
-  </form>
-  <p>TODOs:</p>
-
-  <ul>
+    <p>Add a todo:</p>
+    <form method="POST" action="/todos">
+      <label for="todo">Todo:</label>
+      <input type="text" id="todo" name="todo" /><br/>
+      <input type="submit" value="Add" />
+    </form>
+    <p>Existing todos:</p>
+    <ul>
     <% it.todos.forEach((todo) => { %>
-    <li>
-      <a href="/todos/<%= todo.id %>"><%= todo.todo %></a>
-      <form method="POST" action="/todos/<%= todo.id %>/delete">
-        <input type="submit" value="Delete" />
-      </form>
-    </li>
+      <li>
+        <a href="/todos/<%= todo.id %>"><%= todo.todo %></a>
+        <form method="POST" action="/todos/<%= todo.id %>/delete">
+          <input type="submit" value="Delete" />
+        </form>
+      </li>
     <% }); %>
-  </ul>
-</body>
-
+    </ul>
+  </body>
 </html>

@@ -25,7 +25,7 @@ const updatedTodo = async (userId, id, todo) => {
     todo.id = id;
     const kv = await Deno.openKv();
     await kv.set(["todos", userId, id], todo);
-}
+  };
 
 const deletedTodo = async (userId, id) => {
     const kv = await Deno.openKv();

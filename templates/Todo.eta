@@ -9,13 +9,7 @@
       <input type="text" id="todo" name="todo" value="<%= it.todo.todo %>" /><br/>
       <input type="submit" value="Update todo" />
     </form>
+    
     <p><a href="/todos">Back to todos</a></p>
   </body>
 </html>
-
-<!DOCTYPE html>
-<html>
-
-<head>
-  <title>TODO</title>
-</head>
